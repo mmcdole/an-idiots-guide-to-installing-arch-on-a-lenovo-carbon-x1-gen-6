@@ -501,7 +501,7 @@
 * installing arch and setting it up to boot and run
 ** install arch onto ~/mnt~
    #+BEGIN_SRC sh
-     pacstrap /mnt/ base   
+     pacstrap /mnt/ base linux linux-firmware  
    #+END_SRC
    - note, a popular additional option to include is ~base-devel~, so
       install that as well if you see yourself needing to compile and link
@@ -535,7 +535,7 @@
    2. for a fact will want to install all the packages in relation to wifi
       if you do not have an adapter like me.
       #+BEGIN_SRC sh
-        pacman -S wpa_supplicant networkmanager network-manager-applet dialog 
+        pacman -S wpa_supplicant dialog netctl dhcpcd  
       #+END_SRC
    3. packages for intel microcode drivers, *important*
       - microcode is key to stability and patching issues with intel
@@ -712,7 +712,7 @@
       - to my knowledge, we only have 32 bit drivers in case you are
         wondering why we are instaling 32 bit drivers /shrug 
         #+BEGIN_SRC sh
-          pacman -S xf86-video-intel lib32-intel-dri lib32-mesa lib32-libgl
+          pacman -S xf86-video-intel lib32-mesa lib32-libgl
         #+END_SRC
       - at this point, if you want, you can use a very primitive GUI via
         ~twm~, which is the default tiling window manager of xorg. To do
